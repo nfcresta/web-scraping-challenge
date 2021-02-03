@@ -11,6 +11,9 @@ client = pymongo.MongoClient(conn)
 db = client.Mission_to_Mars
 mars_data = db.mars_data
 
+#drop the collection first
+mars_data.drop()
+
 # scrape route
 @app.route('/scrape')
 def scrape():
@@ -22,7 +25,7 @@ def scrape():
 @app.route('/')
 def index():
     mars_ = db.mars_data.find()
-    return render_template
+    return render_template('index.html', mars=mars_)
 
 
 if __name__=='__main__':
