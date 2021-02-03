@@ -6,7 +6,7 @@ import requests
 import pymongo
 import pandas as pd
 
-def scrape():
+def scrape_():
     # NASA Mars News 
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
