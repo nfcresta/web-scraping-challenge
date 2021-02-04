@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import pymongo
+import scrape_mars
 
 app = Flask(__name__)
 
@@ -17,15 +18,15 @@ mars_data.drop()
 # scrape route
 @app.route('/scrape')
 def scrape():
-    import scrape_mars
     data = scrape_mars.scrape_()
     db.mars_data.update({}, data, upsert=True)
+    return redirect('/')
 
 # index route
 @app.route('/')
 def index():
-    mars_ = db.mars_data.find()
-    return render_template('index.html', mars=mars_)
+    mars = db.mars_data.find_one()
+    return render_template('index.html', mars=mars)
 
 
 if __name__=='__main__':

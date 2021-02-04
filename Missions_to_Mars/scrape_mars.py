@@ -82,7 +82,7 @@ def scrape_():
         image = soup.find('img', class_='wide-image')['src']
         image_url = f"https://astrogeology.usgs.gov{image}"
         
-        marsDict = {'title:': title, 'img_url': image_url}
+        marsDict = {'title': title, 'img_url': image_url}
         mars_hemispheres.append(marsDict)
         browser.back()
 

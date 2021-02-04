@@ -33,6 +33,7 @@
     
     <br>
     
+    <section>
     <div class="row">
         <div class="col-sm-8">
             <h3>Featured Mars Image</h3>
@@ -42,32 +43,32 @@
         <div class="col-sm-4">
             <div class="col-sm-12">
                 <h4>Mars Facts</h4>
-                {{ mars.mars_facts_table }}
+                {{ mars.mars_facts_table|safe }}
             </div>
         </div>
+    </section>    
         
         <br>
         <br>
+        <br>
 
+        <section id="lower">
         <div class="row text-center">
             <div class="col-sm-12">
                 <h3>Mars Hemispheres</h3>
             </div>
         </div>
 
-        <hr>
-        <br>
-
-        {% for x in mars %}
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card-body text-center">
-                    <h5>{{ mars.mars_hemispheres[x]['title'] }}</h5>
-                </div>
-                <img src="{{ mars.mars_hemispheres[x]['img_url'] }}" class="card-img-top" alt="{{ mars.mars_hemispheres[x]['title'] }}">
-            </div>
+        {% for x in mars.mars_hemispheres %}
+        <div class="col-md-6">
+            
+            <figure class="figure">
+                <img src="{{ x.img_url }}" class="figure-img img-fluid my-1" alt="{{ x.title }}">
+                <figcaption class="figure-caption"><h5>{{ x.title }}</h5></figcaption>
+            </figure>
         </div>
         {% endfor %}
+    </section>
     </div>
     
 </body>
