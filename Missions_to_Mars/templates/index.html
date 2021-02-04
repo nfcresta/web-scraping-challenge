@@ -23,13 +23,15 @@
     <br>
     <br>
 
+    <section>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col">
             <h2>Latest Mars News</h2>
             <h4>{{ mars.news_title }}</h4>
             <p>{{ mars.news_p }}</p>
         </div>
     </div>
+    </section>
     
     <br>
     
@@ -39,7 +41,7 @@
             <h3>Featured Mars Image</h3>
             <img src="{{ mars.featured_image_url }}" alt="Featured Image">
         </div>
-
+ 
         <div class="col-sm-4">
             <div class="col-sm-12">
                 <h4>Mars Facts</h4>
@@ -52,7 +54,7 @@
         <br>
         <br>
 
-        <section id="lower">
+        <section>
         <div class="row text-center">
             <div class="col-sm-12">
                 <h3>Mars Hemispheres</h3>
@@ -60,15 +62,18 @@
         </div>
 
         {% for x in mars.mars_hemispheres %}
-        <div class="col-md-6">
-            
-            <figure class="figure">
-                <img src="{{ x.img_url }}" class="figure-img img-fluid my-1" alt="{{ x.title }}">
-                <figcaption class="figure-caption"><h5>{{ x.title }}</h5></figcaption>
-            </figure>
+          <div class="container">  
+             <div class="col-md-8"> 
+                <figure class="figure">
+                    <img src="{{ x.img_url }}" class="figure-img img-fluid my-1" alt="{{ x.title }}">
+                    <figcaption class="figure-caption"><h5>{{ x.title }}</h5></figcaption>
+                </figure>
+             </div>           
+          </div>  
         </div>
         {% endfor %}
-    </section>
+        </section>
+    
     </div>
     
 </body>
