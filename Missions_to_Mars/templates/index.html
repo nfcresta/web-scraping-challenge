@@ -8,6 +8,7 @@
     <title>Mars!</title>
 </head>
 <body>
+    <!-- Title and scrape buttion -->
     <div class="container">
         <div class="text-center">
             <div class="jumbotron">
@@ -23,6 +24,7 @@
     <br>
     <br>
 
+    <!-- Latest news -->
     <section>
     <div class="row">
         <div class="col">
@@ -35,13 +37,15 @@
     
     <br>
     
+    <!-- Featured image -->
     <section>
     <div class="row">
         <div class="col-sm-8">
             <h3>Featured Mars Image</h3>
             <img src="{{ mars.featured_image_url }}" alt="Featured Image">
         </div>
- 
+        
+        <!-- Table -->
         <div class="col-sm-4">
             <div class="col-sm-12">
                 <h4>Mars Facts</h4>
@@ -54,6 +58,7 @@
         <br>
         <br>
 
+        <!-- Mars hemispheres -->
         <section>
         <div class="row text-center">
             <div class="col-sm-12">
@@ -61,6 +66,7 @@
             </div>
         </div>
 
+        <!-- for loop -->
         {% for x in mars.mars_hemispheres %}
           <div class="container">  
              <div class="col-md-8"> 
