@@ -18,12 +18,11 @@ def index():
     mars = db.mars_data.find_one()
     return render_template('index.html', mars=mars)
 
-# drop the collection first
-mars_data.drop()
-
 # scrape route
 @app.route('/scrape')
 def scrape():
+    # drop the collection first
+    mars_data.drop()
     data = scrape_mars.scrape_()
     db.mars_data.update({}, data, upsert=True)
     return redirect('/')
